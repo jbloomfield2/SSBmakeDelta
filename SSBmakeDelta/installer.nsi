@@ -58,8 +58,8 @@ FunctionEnd
 
   !insertmacro MUI_PAGE_LICENSE "${NSISDIR}\Docs\Modern UI\License.txt"
   !insertmacro MUI_PAGE_COMPONENTS
-  Page Custom PageCreate PageLeave
   !insertmacro MUI_PAGE_DIRECTORY
+  Page Custom PageCreate PageLeave
   !insertmacro MUI_PAGE_INSTFILES
   !insertmacro MUI_UNPAGE_CONFIRM
   !insertmacro MUI_UNPAGE_INSTFILES
