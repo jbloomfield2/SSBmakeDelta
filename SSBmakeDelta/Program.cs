@@ -14,6 +14,10 @@ namespace SSBmakeDelta
     {
         static void Main(string[] args)
         {
+            bool rdb = false;
+            if (args.Length > 1)
+                if (args[1] == "-rdb")
+                    rdb = true;
             string smashRom = @"C:\GEEdit4\Super Smash Bros. (USA).z64";
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\rompath.ini"))
             {
@@ -27,7 +31,7 @@ namespace SSBmakeDelta
 
             if(File.Exists(selected) && File.Exists(smashRom))
             {
-                if (type == ".z64" && args[1] == "-rdb")
+                if (type == ".z64" && rdb)
                     makeRDB(selected);
                 else if (type == ".z64")
                 {

@@ -59,8 +59,8 @@ FunctionEnd
   !insertmacro MUI_PAGE_LICENSE "${NSISDIR}\Docs\Modern UI\License.txt"
   !insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
-  Page Custom PageCreate PageLeave
   !insertmacro MUI_PAGE_INSTFILES
+  Page Custom PageCreate PageLeave
   !insertmacro MUI_UNPAGE_CONFIRM
   !insertmacro MUI_UNPAGE_INSTFILES
 
@@ -119,6 +119,10 @@ Section "SSBpatchtool" SecTool
   ;ADD YOUR OWN FILES HERE...
 File SSBMakeDelta.exe
 File xdelta3.dll
+File system.buffers.dll
+File System.memory.dll
+File System.Runtime.CompilerServices.Unsafe.dll
+
   
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
@@ -127,6 +131,8 @@ SectionEnd
 
 Section "Right click menu entries" SecRightclick
 StrCpy $1 '$INSTDIR\SSBMakeDelta.exe "%1"'
+StrCpy $2 '$INSTDIR\SSBMakeDelta.exe "%1" -rdb'
+
 WriteRegStr HKCR "*\shell\SSB apply xdelta" "" "Apply SSB Xdelta"
 WriteRegStr HKCR "*\shell\SSB apply xdelta" "AppliesTo" ".xdelta"
 WriteRegStr HKCR "*\shell\SSB apply xdelta\command" "" $1
@@ -134,6 +140,10 @@ WriteRegStr HKCR "*\shell\SSB apply xdelta\command" "" $1
 WriteRegStr HKCR "*\shell\SSB create xdelta" "" "Create SSB Xdelta"
 WriteRegStr HKCR "*\shell\SSB create xdelta" "AppliesTo" ".z64"
 WriteRegStr HKCR "*\shell\SSB create xdelta\command" "" $1
+
+WriteRegStr HKCR "*\shell\SSB create RDB" "" "Create SSB RDB"
+WriteRegStr HKCR "*\shell\SSB create RDB" "AppliesTo" ".z64"
+WriteRegStr HKCR "*\shell\SSB create RDB\command" "" $2
 
 
 
