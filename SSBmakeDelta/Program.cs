@@ -91,7 +91,7 @@ namespace SSBmakeDelta
                 s.Close();
             }
             string path = Path.GetDirectoryName(selected);
-            File.Move(Path.Combine(Path.GetTempPath(), "pj64.rdb"),Path.Combine(path,"pj64.rdb"));
+            File.Copy(Path.Combine(Path.GetTempPath(), "pj64.rdb"),Path.Combine(path,"pj64.rdb"),true);
 
 
         }

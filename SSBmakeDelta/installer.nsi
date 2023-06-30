@@ -97,11 +97,8 @@ FunctionEnd
 Function PageLeave
 ${NSD_GetText} $RomPath $0
 ${GetFileName} $0 $1
-${IfNot} ${FileExists} $0
-    Abort
-${Else}
-    ${WriteToFile} "$INSTDIR\rompath.ini" $0
-${EndIf}
+FileOpen $3 "$INSTDIR\rompath.ini" w
+FileWrite $3 $0
 FunctionEnd
   
 ;--------------------------------
@@ -119,10 +116,10 @@ Section "SSBpatchtool" SecTool
   ;ADD YOUR OWN FILES HERE...
 File SSBMakeDelta.exe
 File xdelta3.dll
-File system.buffers.dll
-File System.memory.dll
+File System.Buffers.dll
+File System.Memory.dll
 File System.Runtime.CompilerServices.Unsafe.dll
-
+File xdelta3.net.dll
   
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
