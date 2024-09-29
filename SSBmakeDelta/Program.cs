@@ -77,22 +77,16 @@ namespace SSBmakeDelta
 
                 s.WriteLine("");
                 s.WriteLine("[" + crc1 + "-" + crc2 + "-C:45]");
-                s.WriteLine("Counter Factor=1");
-                s.WriteLine("Culling=1");
                 s.WriteLine("Good Name="+goodname);
                 s.WriteLine("Internal Name="+intName);
-                s.WriteLine("RDRAM Size=8");
+                s.WriteLine("Status=Compatible");
+                s.WriteLine("Counter Factor=1");
+                s.WriteLine("Culling=1");
                 s.WriteLine("SMM-Cache=0");
                 s.WriteLine("SMM-FUNC=0");
                 s.WriteLine("SMM-TLB=0");
-                s.WriteLine("Status=Compatible");
-                s.WriteLine("Save Type=First Save Type");
-                s.WriteLine("CPU Type=Default");
-                s.WriteLine("Self-modifying code Method=Default");
-                s.WriteLine("Reg Cache=Yes");
-                s.WriteLine("Use TLB=Yes");
-                s.WriteLine("Use Large Buffer=No");
-                s.WriteLine("Linking=Global");
+                s.WriteLine("Use TLB=No");
+                s.WriteLine("RDRAM Size=8");
                 s.WriteLine("ViRefresh=2200");
                 s.WriteLine("");
                 s.Close();
